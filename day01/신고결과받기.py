@@ -17,13 +17,13 @@ def solution(id_list, report, k):
 		if not issame:
 			count[rep[1]] += 1
 			check[rep[0]].append(rep[1])
-	print(check)
-	for i in count:
+	print('check: ', check)
+	print('count: ', count)
+	for i in count: # count 
 		if count[i] >= k:
 			for j, lst in check.items():
-				for m in lst: # j 가 신고한 목록 lst
-					if i == m: # 신고당한 횟수 k 이상인 i가 신고한 목록에 있으면
-						answer[id_list.index(j)] += 1
+				if i in lst:
+					answer[id_list.index(j)] += 1
 	return answer
 
 print(solution(["muzi", "frodo", "apeach", "neo"], 
