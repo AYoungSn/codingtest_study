@@ -8,8 +8,7 @@ def solution(id_list, report, k):
 		answer.append(0)
 	
 	for i in report:
-		# print(i.split()) ['muzi', 'frodo']
-		rep = i.split()
+		rep = i.split() # 'muzi frodo' => ['muzi', 'frodo']
 		issame = False
 		for j in check[rep[0]]:
 			if j == rep[1]:

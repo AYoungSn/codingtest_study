@@ -1,6 +1,3 @@
-from operator import le
-
-
 def solution(new_id):
 	answer = ''
 	new_id = new_id.lower()
