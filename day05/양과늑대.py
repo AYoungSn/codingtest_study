@@ -39,7 +39,7 @@ def solution(info, edges):
 print(solution([0,0,1,1,1,0,1,0,1,0,1,1], 
 [[0,1],[1,2],[1,4],[0,8],[8,7],[9,10],[9,11],[4,3],[6,5],[4,6],[8,9]]))
 
-def solution2(info, edges):
+def solution2(info, edges): # 순열을 사용한 경우 - 시간초과
     answer = 1
     edge_dict = {}
     for i in range(len(edges)):
