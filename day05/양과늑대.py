@@ -11,11 +11,11 @@ def solve(cur, visit, wolf, sheep, can_go):
     if visit[cur]: return # 이미 방문한 노드는 체크하지 않음
     visit[cur] = True
 
-    if w_info[cur] == 1:
-        wolf += 1
+    if w_info[cur] == 1: # 현재 위치에 늑대가 있으면
+        wolf += 1 # 늑대 수 증가
     else:
-        sheep += 1
-        max_sheep = max(max_sheep, sheep)
+        sheep += 1 # 양의 수 증가
+        max_sheep = max(max_sheep, sheep) # 모을 수 있는 양의 최대 수 계산
     
     if wolf >= sheep: # 늑대가 더 많거나 같으면 더이상 계산하지 않음
         return
@@ -29,6 +29,7 @@ def solve(cur, visit, wolf, sheep, can_go):
 def solution(info, edges):
     global num_edge, w_info
     w_info = info
+    # 부모 노드의 번호로 자식 노드를 찾을 수 있도록 dict 만들기
     for e in edges:
         num_edge[e[0]].append(e[1]) # { 부모: [자식1, 자식2], ,,}
     visit = [False] * len(info) # 방문한 곳인지 체크하는 리스트
