@@ -48,6 +48,7 @@ def solution2(info, edges): # 순열을 사용한 경우 - 시간초과
         edge_dict[edges[i][1]] = edges[i][0] # { 자식: 부모, 자식1:부모1.,,}
     edge_dict[0] = 0
     for case in itertools.permutations(range(1, len(info)), len(info) - 1):
+        print(case)
         if edge_dict[case[0]] != 0:
             continue
         visit = [False for _ in range(len(info))]
@@ -73,3 +74,6 @@ def solution2(info, edges): # 순열을 사용한 경우 - 시간초과
         if not valid:
             continue
     return answer
+
+print(solution2([0,0,1,1,1,0,1,0,1,0,1,1], 
+[[0,1],[1,2],[1,4],[0,8],[8,7],[9,10],[9,11],[4,3],[6,5],[4,6],[8,9]]))
