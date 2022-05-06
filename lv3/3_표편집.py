@@ -1,4 +1,5 @@
-def solution(n, k, cmd):
+def solution(n, k, cmd): # 리스트에 원소들을 넣고 추가, 삭제 -> 시간이 오래걸림
+    #시간초과
     answer = ''
     arr = [i for i in range(n)]
     rm_list = []
@@ -36,7 +37,7 @@ class Node:
         self.rm = False
 
 def solution2(n, k, cmd):
-    node = [Node() for _ in range(n)]
+    node = [Node() for _ in range(n)] # 노드들을 배열에 담음
     rm_list = []
     cur = k
     for i in range(n - 1):
@@ -47,13 +48,13 @@ def solution2(n, k, cmd):
         if c[0] == 'U':
             # k -= int(c.split()[1])
             for i in range(int(c[1])):
-                cur = node[cur].prev
+                cur = node[cur].prev # 현재 노드가 앞의 행을 가리키려고 하면 현재 노드의 prev 값
         elif c[0] == 'D':
             # k += int(c.split()[1])
             for i in range(int(c[1])):
                 cur = node[cur].next
         elif c[0] == 'C':
-            # rm = node[k]
+            # 원소를 삭제하는게 아니라 노드가 가리키는 prev, next 를 변경
             node[cur].rm = True
             rm_list.append(cur)
             next = node[cur].next
@@ -67,7 +68,7 @@ def solution2(n, k, cmd):
                 cur = prev
             
         elif c[0] == 'Z':
-            rm = rm_list.pop()
+            rm = rm_list.pop() # 삭제 리스트
             node[rm].rm = False
             prev = node[rm].prev
             next = node[rm].next
