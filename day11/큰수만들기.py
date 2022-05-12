@@ -1,3 +1,4 @@
+# greedy
 def solution(number, k):
     answer = ''
     arr = []
